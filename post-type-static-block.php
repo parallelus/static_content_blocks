@@ -74,9 +74,10 @@ class StaticBlockContent {
 							'parent_item_colon' => '',
 							'menu_name' => 'Content Blocks'
 						),
-					'exclude_from_search' => true,
-					'publicly_queryable'  => true,
 					'public'              => true,
+					'exclude_from_search' => true,
+					'show_in_nav_menus'   => false,
+					'publicly_queryable'  => false,
 					'show_ui'             => true,
 					'menu_icon'           => 'dashicons-editor-table', // 'dashicons-screenoptions',
 					'query_var'           => 'static_block',
