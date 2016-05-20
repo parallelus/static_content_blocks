@@ -38,7 +38,7 @@ function the_static_block( $id = false, $args = array(), $echo = true ) {
 		$args["id"] = $id;
 		$content = StaticBlockContent::get_static_content($args);
 		if ($echo) {
-			echo  $content;
+			echo apply_filters('static_block_content', $content);
 		} else {
 			return $content;
 		}
@@ -364,17 +364,17 @@ class Theme_StaticBlock_Widget extends WP_Widget {
 			$content = the_static_block($id, '', false);
 			$show_title = isset( $instance['show_title'] ) ? $instance['show_title'] : false;
 
-			echo  $before_widget;
+			echo apply_filters('static_block_before_widget', $before_widget);
 
 			// Display the widget title
 			if ( $show_title )
-				echo  $before_title . $title . $after_title;
-
+				echo apply_filters('static_block_widget_title', $title);
 			// Display the content
 			if ( $content )
-				echo  $content;
+				echo apply_filters('static_block_widget_content', $content);
 
-			echo  $after_widget;
+			echo apply_filters('static_block_after_widget', $after_widget);
+
 		}
 	}
 
