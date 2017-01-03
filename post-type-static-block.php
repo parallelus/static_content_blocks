@@ -33,7 +33,7 @@ StaticBlockContent::onload();
 
 // Easy access to static block output
 //................................................................
-function the_static_block( $id = false, $args = array(), $echo = true ) {
+function the_static_block( $id = false, array $args = array(), $echo = true ) {
 	if ($id) {
 		$args["id"] = $id;
 		$content = StaticBlockContent::get_static_content($args);
@@ -93,7 +93,7 @@ class StaticBlockContent {
 	}
 
 	// Retrieves content for Static Blocks (could also get pages, posts, etc.)
-	static function get_static_content($args=array()) {
+	static function get_static_content(array $args=array()) {
 
 		$default = array(
 			'id' => false,
@@ -361,7 +361,7 @@ class Theme_StaticBlock_Widget extends WP_Widget {
 		if (!empty($id)) {
 			// Our variables from the widget settings.
 			$title = apply_filters('widget_title', the_static_block($id, array('return_type'=>'title'), false) );
-			$content = the_static_block($id, '', false);
+			$content = the_static_block($id, array(), false);
 			$show_title = isset( $instance['show_title'] ) ? $instance['show_title'] : false;
 
 			echo apply_filters('static_block_before_widget', $before_widget);
