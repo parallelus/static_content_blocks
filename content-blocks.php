@@ -5,7 +5,7 @@ Plugin URI: http://para.llel.us
 Description: Content sections to easily add content to theme sections.
 Author: Parallelus
 Author URI: http://para.llel.us
-Version: 1.0.3
+Version: 1.0.4
 */
 
 if (!function_exists('the_static_block')) {
