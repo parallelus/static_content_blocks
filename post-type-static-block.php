@@ -151,8 +151,10 @@ class StaticBlockContent {
 			}
 			$class = (!empty($args->class)) ? trim($args->class) : '';
 			$content = apply_filters('static_content_vc', $content, $id);
-			$text = '<div id="static-content-' . $id . '" class="static-content '. $class .'"'. $style. '>'. $content .'</div>';
-			$content = $text;
+			if (isset($text) && isset($style)) {
+				$text = '<div id="static-content-' . $id . '" class="static-content '. $class .'"'. $style. '>'. $content .'</div>';
+				$content = $text;
+			}
 
 			// The title
 			if (!empty($args->title)){
